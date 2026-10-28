@@ -3,6 +3,11 @@ output "vpc_id" {
   value       = module.vpc.vpc_id
 }
 
+output "aws_region" {
+  description = "AWS Region containing the example resources."
+  value       = var.aws_region
+}
+
 output "public_subnet_id" {
   description = "ID of the public subnet containing the instance."
   value       = module.vpc.public_subnet_ids[0]

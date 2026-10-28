@@ -51,8 +51,9 @@ Manager shell:
 
 ```powershell
 $InstanceId = terraform output -raw instance_id
-aws ssm describe-instance-information --region us-east-1 --filters "Key=InstanceIds,Values=$InstanceId"
-aws ssm start-session --region us-east-1 --target $InstanceId
+$AwsRegion = terraform output -raw aws_region
+aws ssm describe-instance-information --region $AwsRegion --filters "Key=InstanceIds,Values=$InstanceId"
+aws ssm start-session --region $AwsRegion --target $InstanceId
 ```
 
 Inside the instance, verify both ICMP and HTTPS egress:
