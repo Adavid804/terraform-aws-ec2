@@ -1,6 +1,17 @@
 # terraform-aws-ec2
 Terraform-AWS-EC2 created by Andrew 
 
+## Integrated public VPC + EC2 example
+
+[`examples/public-vpc-ec2`](examples/public-vpc-ec2) composes this module with
+[`Adavid804/terraform-aws-vpc`](https://github.com/Adavid804/terraform-aws-vpc).
+It creates a public subnet with an internet-gateway route, assigns the instance
+a public IPv4 address, allows outbound traffic without opening inbound ports,
+and enables AWS Systems Manager Session Manager for verification.
+
+The example is intentionally review-first: run `terraform plan` before any
+apply, and see its README for prerequisites, verification, and cleanup steps.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
